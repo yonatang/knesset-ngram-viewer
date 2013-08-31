@@ -1,0 +1,95 @@
+What:
+~~~~~
+
+This is the lattice extension of the BerkeleyParser which was used in the papers:
+
+   Language-Independent Parsing with Empty Elements. Shu Cai, David Chiang and Yoav Goldberg. ACL-2011 (Short Paper)
+
+   Joint Hebrew Segmentation and Parsing using a PCFGLA Lattice Parser. Yoav Goldberg and Michael Elhadad. ACL-2011 (Short Paper)
+
+How to run:
+~~~~~~~~~~~
+
+training:
+   as usual
+
+parsing:
+   java -cp javabin edu.berkeley.nlp.PCFGLA.BerkeleyLatticeParser -lattice -gr GRAMMAR_FILE < lattice_input_file
+
+Lattice format:
+~~~~~~~~~~~~~~
+
+Each line is a word, blank line between sentences. each line has the form:
+
+   start_index end_index word [pos]
+
+where start_index, end_index are integers, end_index>start_index and [pos] is optional.
+
+If pos is not specified, all the available tags are suggested for the given word.
+If pos is specified, it is used as a filter: different pos-tags are not proposed for that word.
+
+The probabilities for p(word|tag) are in both cases calculated internally by the parser.
+
+- lattice example for the sentence "green eggs and ham":
+
+0 1 green
+1 2 eggs
+2 3 and
+3 4 ham
+4 5 .
+
+- lattice example for the sentence "green eggs and ham", with pos-tags:
+
+0 1 green NN
+0 1 green VB
+0 1 green JJ
+1 2 eggs
+2 3 and
+3 4 ham
+4 5 .
+
+here, we allow the word green as NN, VB or JJ, and the other words get all possible pos tags.
+
+- making actual use (if somewhat dumb) of lattice capabilities:
+
+0 1 green
+1 2 eggs
+2 3 and
+3 4 ham
+0 2 green-eggs
+1 4 eggs-and-ham NN
+1 4 eggs-and-ham JJ
+4 5 .
+
+here, we allow three readings: 
+green eggs and ham .
+green-eggs and ham .
+green eggs-and-ham .
+
+(hyphenated tokens are counted as one word). For the token eggs-and-ham, we allow NN and JJ pos tags.  For all the others, all pos-tags are allowed.
+
+Restrictions:
+~~~~~~~~~~~~~
+though not validated, the following are not allowed:
+
+- do not use two different words with the same indices:
+
+BAD:
+0 1 green
+1 2 eggs
+1 2 cheese
+2 3 and
+3 4 ham
+4 5 .
+
+
+- if you specify a tag for a given indices/word, do not include the same without a pos-tag.
+
+BAD:
+0 1 green
+1 2 eggs NNS
+1 2 eggs
+2 3 and
+3 4 ham
+4 5 .
+

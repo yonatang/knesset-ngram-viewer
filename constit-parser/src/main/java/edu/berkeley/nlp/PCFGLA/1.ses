@@ -1,0 +1,1527 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <S-Tab> =BackwardsSnippet()
+imap <silent> <Plug>IMAP_JumpBack =IMAP_Jumpfunc('b', 0)
+imap <silent> <Plug>IMAP_JumpForward =IMAP_Jumpfunc('', 0)
+imap <F3> :set norli
+imap <F4> :set rli
+imap <C-Space> 
+cnoremap <C-F4> c
+inoremap <C-F4> c
+cnoremap <C-Tab> w
+inoremap <C-Tab> 	
+cmap <S-Insert> +
+imap <S-Insert> 
+noremap  gggHG
+vnoremap  "+y
+noremap  h
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+xmap 	 >gv
+noremap <NL> j
+noremap  k
+noremap  l
+noremap  
+vnoremap  :update
+nnoremap  :update
+onoremap  :update
+nmap  "+gP
+omap  "+gP
+snoremap  b<BS>
+xnoremap  "+x
+noremap  
+noremap  u
+map   /
+snoremap % b<BS>%
+snoremap ' b<BS>'
+map <silent> ,ws <Plug>VimwikiUISelect
+map <silent> ,wt <Plug>VimwikiTabGoHome
+map <silent> ,ww <Plug>VimwikiGoHome
+map ,t <Plug>TaskList
+map ,mbt <Plug>TMiniBufExplorer
+map ,mbu <Plug>UMiniBufExplorer
+map ,mbc <Plug>CMiniBufExplorer
+map ,mbe <Plug>MiniBufExplorer
+map <silent> ,bs <Plug>SplitBufExplorer
+map <silent> ,be <Plug>StartBufExplorer
+map ,bb :cd ..
+map ,pp :setlocal paste!
+map ,q :e ~/buffer
+noremap ,m mmHmt:%s///ge'tzt'm
+map ,ss :setlocal spell!
+map ,cd :cd %:p:h
+map <silent> , :nohl
+cnoremap   :simalt ~
+inoremap   :simalt ~
+map F :let &fen = !&fen
+map Q gq
+xmap S <Plug>VSurround
+map T :TaskList
+snoremap U b<BS>U
+snoremap \ b<BS>\
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+nmap j gj
+nmap k gk
+vnoremap p :let current_reg = @"gvs=current_reg
+xmap s <Plug>Vsurround
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+noremap <C-Right> l
+noremap <C-Left> h
+noremap <C-Up> k
+noremap <C-Down> j
+vmap <silent> <Plug>IMAP_JumpBack `<i=IMAP_Jumpfunc('b', 0)
+vmap <silent> <Plug>IMAP_JumpForward i=IMAP_Jumpfunc('', 0)
+vmap <silent> <Plug>IMAP_DeleteAndJumpBack "_<Del>i=IMAP_Jumpfunc('b', 0)
+vmap <silent> <Plug>IMAP_DeleteAndJumpForward "_<Del>i=IMAP_Jumpfunc('', 0)
+nmap <silent> <Plug>IMAP_JumpBack i=IMAP_Jumpfunc('b', 0)
+nmap <silent> <Plug>IMAP_JumpForward i=IMAP_Jumpfunc('', 0)
+map <F9> :make
+map <F5> :Run
+nmap <kMultiply> zA
+nmap <kPlus> zO
+nmap <kMinus> zC
+map <M-Down> j
+map <M-Up> k
+map <M-Right> l
+map <M-Left> h
+map <F3> :set norl
+map <F4> :set rl
+xmap <S-Tab> <gv
+nmap <F12> :NERDTree
+noremap <C-F4> c
+vmap <S-Insert> 
+vnoremap <C-Insert> "+y
+vnoremap <S-Del> "+x
+xnoremap <BS> d
+nmap <S-Insert> "+gP
+omap <S-Insert> "+gP
+cnoremap  gggHG
+inoremap  gggHG
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <silent> 	 =TriggerSnippet()
+imap <NL> <Plug>IMAP_JumpForward
+inoremap <silent> 	 =ShowAvailableSnips()
+inoremap  :update
+cmap  +
+inoremap  
+inoremap  u
+noremap   :simalt ~
+iabbr fori for(int i=0;i<;i++) {hhhhhhha
+iabbr sop System.out.println
+iabbr psv public static void
+iabbr Gr Graphics
+iabbr En Enumeration
+iabbr Ex Exception
+iabbr Ob Object
+iabbr sw switch
+iabbr ret return
+iabbr ir import
+iabbr fi final
+iabbr st static
+iabbr cl class
+iabbr ab abstract
+iabbr bo boolean
+iabbr ex extends
+iabbr pu public
+iabbr pe protected
+iabbr pr private
+iabbr serr System.err.println();<Left><Left>
+iabbr sout System.out.println();<Left><Left>
+iabbr psvm public static void main(String[] args) {}O
+abbr //= //===================================================
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autowrite
+set background=dark
+set backspace=2
+set backup
+set noequalalways
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set grepprg=grep\ -nH\ $*
+set guifont=DejaVu\ Sans\ Mono\ Bold\ 10
+set guioptions=aegimrLt
+set helplang=en
+set history=50
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set makeef=.error.err
+set makeprg=javac\ %
+set mouse=a
+set printoptions=paper:letter
+set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set shellpipe=2>
+set shiftwidth=3
+set showcmd
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.class
+set tabstop=3
+set termencoding=utf-8
+set visualbell
+set whichwrap=b,s,<,>,[,]
+set window=47
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/Vork/Research/HebrewConstituencyParsing/blattforest/java/edu/berkeley/nlp/PCFGLA
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +833 GrammarTrainerPresplit.java
+badd +0 ../../../../../NOTES.yg
+badd +1330 Grammar.java
+args GrammarTrainerPresplit.java
+edit Grammar.java
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+wincmd _ | wincmd |
+split
+wincmd _ | wincmd |
+split
+wincmd _ | wincmd |
+split
+wincmd _ | wincmd |
+split
+5wincmd k
+wincmd w
+wincmd w
+wincmd w
+wincmd w
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 1 + 24) / 48)
+exe '2resize ' . ((&lines * 20 + 24) / 48)
+exe '3resize ' . ((&lines * 17 + 24) / 48)
+exe '4resize ' . ((&lines * 1 + 24) / 48)
+exe '5resize ' . ((&lines * 1 + 24) / 48)
+exe '6resize ' . ((&lines * 1 + 24) / 48)
+argglobal
+enew
+file -MiniBufExplorer-
+let s:cpo_save=&cpo
+set cpo&vim
+nnoremap <buffer> 	 :call search('\[[0-9]*:[^\]]*\]'):<BS>
+nnoremap <buffer> j gj
+nnoremap <buffer> k gk
+nnoremap <buffer> p :wincmd p:<BS>
+nnoremap <buffer> <S-Tab> :call search('\[[0-9]*:[^\]]*\]','b'):<BS>
+nnoremap <buffer> <Up> gk
+nnoremap <buffer> <Down> gj
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=delete
+setlocal nobuflisted
+setlocal buftype=nofile
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != ''
+setlocal filetype=
+endif
+set foldcolumn=4
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+wincmd w
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=j1
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'java'
+setlocal filetype=java
+endif
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=12
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0=extends,0=implements
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.java
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'java'
+setlocal syntax=java
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+20
+normal zo
+365
+normal zo
+365
+normal zo
+556
+normal zo
+560
+normal zo
+560
+normal zo
+556
+normal zo
+696
+normal zo
+707
+normal zo
+707
+normal zo
+729
+normal zo
+729
+normal zo
+696
+normal zo
+786
+normal zo
+786
+normal zo
+1061
+normal zo
+1077
+normal zo
+1061
+normal zo
+1086
+normal zo
+1095
+normal zo
+1095
+normal zo
+1086
+normal zo
+1218
+normal zo
+1228
+normal zo
+1243
+normal zo
+1244
+normal zo
+1243
+normal zo
+1228
+normal zo
+1218
+normal zo
+20
+normal zo
+let s:l = 1245 - ((19 * winheight(0) + 10) / 20)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1245
+normal! 041l
+wincmd w
+argglobal
+edit Grammar.java
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=j1
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'java'
+setlocal filetype=java
+endif
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=12
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0=extends,0=implements
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.java
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'java'
+setlocal syntax=java
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+20
+normal zo
+365
+normal zo
+365
+normal zo
+556
+normal zo
+560
+normal zo
+560
+normal zo
+556
+normal zo
+696
+normal zo
+696
+normal zo
+786
+normal zo
+786
+normal zo
+1014
+normal zo
+1016
+normal zo
+1033
+normal zo
+1016
+normal zo
+1038
+normal zo
+1055
+normal zo
+1038
+normal zo
+1014
+normal zo
+1061
+normal zo
+1077
+normal zo
+1061
+normal zo
+1086
+normal zo
+1095
+normal zo
+1095
+normal zo
+1086
+normal zo
+1218
+normal zo
+1228
+normal zo
+1243
+normal zo
+1244
+normal zo
+1243
+normal zo
+1228
+normal zo
+1218
+normal zo
+20
+normal zo
+let s:l = 1125 - ((9 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1125
+normal! 0
+wincmd w
+argglobal
+edit Grammar.java
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=j1
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'java'
+setlocal filetype=java
+endif
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=12
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0=extends,0=implements
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.java
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'java'
+setlocal syntax=java
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+20
+normal zo
+365
+normal zo
+365
+normal zo
+556
+normal zo
+560
+normal zo
+560
+normal zo
+556
+normal zo
+696
+normal zo
+707
+normal zo
+707
+normal zo
+729
+normal zo
+729
+normal zo
+696
+normal zo
+786
+normal zo
+786
+normal zo
+1061
+normal zo
+1077
+normal zo
+1061
+normal zo
+1086
+normal zo
+1095
+normal zo
+1095
+normal zo
+1086
+normal zo
+1218
+normal zo
+1228
+normal zo
+1243
+normal zo
+1244
+normal zo
+1243
+normal zo
+1228
+normal zo
+1218
+normal zo
+20
+normal zo
+let s:l = 1330 - ((0 * winheight(0) + 0) / 1)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1330
+normal! 0
+wincmd w
+argglobal
+edit ../../../../../NOTES.yg
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != ''
+setlocal filetype=
+endif
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+let s:l = 39 - ((0 * winheight(0) + 0) / 1)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+39
+normal! 073l
+wincmd w
+argglobal
+edit GrammarTrainerPresplit.java
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=j1
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'java'
+setlocal filetype=java
+endif
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=5
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+set foldnestmax=15
+setlocal foldnestmax=15
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0=extends,0=implements
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=3
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=.java
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'java'
+setlocal syntax=java
+endif
+setlocal tabstop=3
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+22
+normal zo
+31
+normal zo
+153
+normal zo
+235
+normal zo
+240
+normal zo
+263
+normal zo
+271
+normal zo
+272
+normal zo
+271
+normal zo
+153
+normal zo
+22
+normal zo
+292
+normal zo
+304
+normal zo
+308
+normal zo
+312
+normal zo
+329
+normal zo
+339
+normal zo
+356
+normal zo
+366
+normal zo
+339
+normal zo
+381
+normal zo
+386
+normal zo
+447
+normal zo
+386
+normal zo
+494
+normal zo
+541
+normal zo
+494
+normal zo
+381
+normal zo
+583
+normal zo
+304
+normal zo
+615
+normal zo
+621
+normal zo
+629
+normal zo
+630
+normal zo
+629
+normal zo
+621
+normal zo
+615
+normal zo
+658
+normal zo
+662
+normal zo
+671
+normal zo
+662
+normal zo
+658
+normal zo
+687
+normal zo
+692
+normal zo
+695
+normal zo
+697
+normal zo
+695
+normal zo
+701
+normal zo
+706
+normal zo
+701
+normal zo
+692
+normal zo
+687
+normal zo
+734
+normal zo
+736
+normal zo
+740
+normal zo
+736
+normal zo
+734
+normal zo
+759
+normal zo
+760
+normal zo
+759
+normal zo
+779
+normal zo
+812
+normal zo
+814
+normal zo
+819
+normal zo
+812
+normal zo
+820
+normal zo
+292
+normal zo
+312
+normal zo
+330
+normal zo
+346
+normal zo
+361
+normal zo
+372
+normal zo
+385
+normal zo
+634
+normal zo
+640
+normal zo
+648
+normal zo
+649
+normal zo
+648
+normal zo
+640
+normal zo
+634
+normal zo
+677
+normal zo
+681
+normal zo
+690
+normal zo
+681
+normal zo
+677
+normal zo
+706
+normal zo
+711
+normal zo
+714
+normal zo
+716
+normal zo
+714
+normal zo
+720
+normal zo
+725
+normal zo
+720
+normal zo
+711
+normal zo
+706
+normal zo
+753
+normal zo
+755
+normal zo
+759
+normal zo
+755
+normal zo
+753
+normal zo
+778
+normal zo
+779
+normal zo
+778
+normal zo
+798
+normal zo
+831
+normal zo
+833
+normal zo
+839
+normal zo
+831
+normal zo
+847
+normal zo
+851
+normal zo
+854
+normal zo
+847
+normal zo
+864
+normal zo
+866
+normal zo
+864
+normal zo
+873
+normal zo
+878
+normal zo
+873
+normal zo
+886
+normal zo
+888
+normal zo
+897
+normal zo
+907
+normal zo
+886
+normal zo
+346
+normal zo
+400
+normal zo
+405
+normal zo
+635
+normal zo
+641
+normal zo
+649
+normal zo
+650
+normal zo
+649
+normal zo
+641
+normal zo
+635
+normal zo
+678
+normal zo
+682
+normal zo
+691
+normal zo
+682
+normal zo
+678
+normal zo
+707
+normal zo
+712
+normal zo
+715
+normal zo
+717
+normal zo
+715
+normal zo
+721
+normal zo
+726
+normal zo
+721
+normal zo
+712
+normal zo
+707
+normal zo
+754
+normal zo
+756
+normal zo
+760
+normal zo
+756
+normal zo
+754
+normal zo
+779
+normal zo
+780
+normal zo
+779
+normal zo
+799
+normal zo
+832
+normal zo
+834
+normal zo
+840
+normal zo
+832
+normal zo
+848
+normal zo
+852
+normal zo
+855
+normal zo
+848
+normal zo
+865
+normal zo
+867
+normal zo
+865
+normal zo
+875
+normal zo
+880
+normal zo
+875
+normal zo
+888
+normal zo
+890
+normal zo
+899
+normal zo
+909
+normal zo
+888
+normal zo
+400
+normal zo
+514
+normal zo
+561
+normal zo
+514
+normal zo
+603
+normal zo
+635
+normal zo
+641
+normal zo
+649
+normal zo
+650
+normal zo
+649
+normal zo
+641
+normal zo
+635
+normal zo
+678
+normal zo
+682
+normal zo
+691
+normal zo
+682
+normal zo
+678
+normal zo
+707
+normal zo
+712
+normal zo
+715
+normal zo
+717
+normal zo
+715
+normal zo
+721
+normal zo
+726
+normal zo
+721
+normal zo
+712
+normal zo
+707
+normal zo
+754
+normal zo
+756
+normal zo
+760
+normal zo
+756
+normal zo
+754
+normal zo
+779
+normal zo
+780
+normal zo
+779
+normal zo
+799
+normal zo
+832
+normal zo
+834
+normal zo
+840
+normal zo
+832
+normal zo
+848
+normal zo
+852
+normal zo
+855
+normal zo
+848
+normal zo
+865
+normal zo
+867
+normal zo
+865
+normal zo
+876
+normal zo
+881
+normal zo
+876
+normal zo
+889
+normal zo
+891
+normal zo
+900
+normal zo
+910
+normal zo
+889
+normal zo
+let s:l = 870 - ((0 * winheight(0) + 0) / 1)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+870
+normal! 09l
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 1 + 24) / 48)
+exe '2resize ' . ((&lines * 20 + 24) / 48)
+exe '3resize ' . ((&lines * 17 + 24) / 48)
+exe '4resize ' . ((&lines * 1 + 24) / 48)
+exe '5resize ' . ((&lines * 1 + 24) / 48)
+exe '6resize ' . ((&lines * 1 + 24) / 48)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
