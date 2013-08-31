@@ -3,19 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-protocol-parser</artifactId>
-
+	<artifactId>knv-protocol-parser</artifactId>
+	<name>knv-protocol-parser</name>
 	<dependencies>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-speaker-parser</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-speaker-parser-names</artifactId>
+			<artifactId>knv-speaker-parser</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.jdom</groupId>

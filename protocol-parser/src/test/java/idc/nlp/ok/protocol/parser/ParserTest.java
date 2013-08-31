@@ -3,14 +3,10 @@ package idc.nlp.ok.protocol.parser;
 
 import idc.nlp.ok.model.Protocol;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -27,7 +27,7 @@ public class SpeakerParserNameTest {
 
 	@BeforeClass
 	void init() {
-		sp = SpeakerParserFactory.instance(SpeakerNamesParser.NAME);
+		sp = SpeakerParserFactory.instance();
 	}
 
 	@Test

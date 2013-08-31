@@ -3,14 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-ngram-indexer</artifactId>
+	<artifactId>knv-ngram-indexer</artifactId>
+	<name>knv-ngram-indexer</name>
 	<dependencies>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-model</artifactId>
+			<artifactId>knv-model</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

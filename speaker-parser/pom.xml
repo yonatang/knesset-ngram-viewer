@@ -3,15 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-speaker-parser</artifactId>
-
+	<artifactId>knv-speaker-parser</artifactId>
+	<name>knv-speaker-parser</name>
 	<dependencies>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-model</artifactId>
+			<artifactId>knv-model</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -24,6 +24,10 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
 		</dependency>
 	</dependencies>
 </project>

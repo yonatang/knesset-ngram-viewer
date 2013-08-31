@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-viewer</artifactId>
+	<artifactId>knv-viewer</artifactId>
 	<packaging>war</packaging>
-	<name>viewer</name>
+	<name>knv-viewer</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
@@ -31,7 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-ngram-indexer</artifactId>
+			<artifactId>knv-ngram-indexer</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>

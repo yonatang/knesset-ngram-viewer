@@ -1,40 +1,22 @@
 package idc.nlp.ok.protocol.speaker.parser;
 
-import java.util.Iterator;
-import java.util.ServiceLoader;
+import lombok.Synchronized;
 
 public class SpeakerParserFactory {
 
-	public static SpeakerParser instance() {
-		ServiceLoader<SpeakerParser> loader = ServiceLoader.load(SpeakerParser.class);
-		Iterator<SpeakerParser> it = loader.iterator();
-		while (it.hasNext()) {
-			SpeakerParser next = it.next();
-			try {
-				next.init();
-				return next;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
+	private static SpeakerParser sp;
 
-	public static SpeakerParser instance(String name) {
-		ServiceLoader<SpeakerParser> loader = ServiceLoader.load(SpeakerParser.class);
-		Iterator<SpeakerParser> it = loader.iterator();
-		while (it.hasNext()) {
-			SpeakerParser next = it.next();
-			if (!next.getParseMethodName().equals(name)) {
-				continue;
-			}
+	@Synchronized
+	public static SpeakerParser instance() {
+		if (sp == null) {
 			try {
-				next.init();
-				return next;
+				sp = new SpeakerNamesParser();
+				sp.init();
 			} catch (Exception e) {
-				e.printStackTrace();
+				sp = null;
+				throw new RuntimeException("Cannot create SpeakerNamesParser", e);
 			}
 		}
-		return null;
+		return sp;
 	}
 }

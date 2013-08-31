@@ -2,14 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nlp.idc</groupId>
-	<artifactId>nlp-fp</artifactId>
+	<artifactId>knv</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<name>knv</name>
 	<modules>
 		<module>protocol-parser</module>
 		<module>constit-parser</module>
 		<module>speaker-parser</module>
-		<module>speaker-parser-names</module>
 		<module>model</module>
 		<module>viewer</module>
 		<module>cruncher</module>
@@ -135,42 +135,37 @@
 
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-const-parser</artifactId>
+				<artifactId>knv-const-parser</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-protocol-parser</artifactId>
+				<artifactId>knv-protocol-parser</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-speaker-parser-names</artifactId>
+				<artifactId>knv-speaker-parser</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-speaker-parser</artifactId>
+				<artifactId>knv-model</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-model</artifactId>
+				<artifactId>knv-viewer</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-viewer</artifactId>
+				<artifactId>knv-cruncher</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-cruncher</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>nlp.idc</groupId>
-				<artifactId>nlp-fp-ngram-indexer</artifactId>
+				<artifactId>knv-ngram-indexer</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

@@ -3,19 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-cruncher</artifactId>
-
+	<artifactId>knv-cruncher</artifactId>
+	<name>knv-cruncher</name>
 	<dependencies>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-protocol-parser</artifactId>
+			<artifactId>knv-protocol-parser</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-const-parser</artifactId>
+			<artifactId>knv-const-parser</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -37,7 +37,7 @@
 		</dependency>
 		<dependency>
 			<groupId>nlp.idc</groupId>
-			<artifactId>nlp-fp-ngram-indexer</artifactId>
+			<artifactId>knv-ngram-indexer</artifactId>
 		</dependency>
 	</dependencies>
 	

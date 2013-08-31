@@ -1,4 +1,4 @@
-package idc.nlp.ok.protocol.speaker.spi.nameparser;
+package idc.nlp.ok.protocol.speaker.parser;
 
 import idc.nlp.ok.model.Role;
 import idc.nlp.ok.model.Speaker;

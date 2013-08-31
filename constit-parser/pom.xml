@@ -3,10 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>nlp.idc</groupId>
-		<artifactId>nlp-fp</artifactId>
+		<artifactId>knv</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>nlp-fp-const-parser</artifactId>
+	<artifactId>knv-const-parser</artifactId>
+	<name>knv-const-parser</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.python</groupId>
