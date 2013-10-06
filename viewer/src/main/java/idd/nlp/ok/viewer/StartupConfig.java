@@ -1,6 +1,8 @@
 package idd.nlp.ok.viewer;
 
 import java.sql.SQLException;
+import java.util.Map.Entry;
+import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -32,6 +34,11 @@ public class StartupConfig implements ServletContextListener {
 			webServer=Server.createWebServer().start();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		Properties props=System.getProperties();
+		for (Entry<Object, Object> e:props.entrySet()){
+			System.out.println(e.getKey()+" = "+e.getValue());
 		}
 	}
 

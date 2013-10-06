@@ -6,6 +6,9 @@ import idc.nlp.ok.model.Protocol;
 import idc.nlp.ok.model.Sentence;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,8 +23,10 @@ import java.util.Set;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.SneakyThrows;
 import lombok.ToString;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
@@ -87,13 +92,14 @@ public class NgramCountDateIndexer extends
 		}
 	}
 
+	@SneakyThrows(UnsupportedEncodingException.class)
 	protected List<QueryItem> queryImpl(QueryOptions options) throws SQLException {
 		String ngram = NO_SUFFIX_FUNCTION.apply(options.getNgram());
 		QueryResolution res = options.getResolution();
 		try (Connection conn = getConnection()) {
 			String query = "SELECT NGRAM, NGRAM_COUNT,TOTAL,NGRAM_DATE FROM " + tableName() + " WHERE NGRAM = ?";
 			System.out.println("Executing query " + query);
-			System.out.println("Params " + ngram);
+			System.out.println("Params " + ngram+","+URLEncoder.encode(ngram,"UTF8"));
 			try (PreparedStatement stmt = conn.prepareStatement(query);) {
 				stmt.setString(1, ngram);
 				List<QueryItem> result = new ArrayList<>();

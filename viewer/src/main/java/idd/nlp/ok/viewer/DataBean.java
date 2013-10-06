@@ -6,6 +6,7 @@ import idc.nlp.ok.indexer.NgramCountDateIndexer.QueryOptions;
 import idc.nlp.ok.indexer.NgramCountDateIndexer.QueryResolution;
 import idc.nlp.ok.indexer.NgramCountPartyIndexer;
 
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -15,15 +16,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 
+import lombok.extern.log4j.Log4j2;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.message.Message;
 import org.joda.time.DateTime;
 
+@Log4j2
 public class DataBean {
 
 	public static final String TYPE_PARAM = "type";
@@ -36,7 +42,7 @@ public class DataBean {
 	public static Charset utf8 = Charset.forName("UTF-8");
 	public static Charset win1255 = Charset.forName("WINDOWS-1255");
 	public static Charset iso = Charset.forName("ISO-8859-1");
-
+	
 	public static enum Type {
 		DATE, PARTY, PERSON
 	}
@@ -48,6 +54,7 @@ public class DataBean {
 
 	private DataBean() {
 		String dbUrl=System.getProperty("h2.url", "tcp://localhost/~/knesset");
+		log.info("Initiating, with URL {0} ",dbUrl);
 		ngramCountDateIndexer = new NgramCountDateIndexer("jdbc:h2:"+dbUrl);
 		ngramCountPartyIndexer = new NgramCountPartyIndexer("jdbc:h2:"+dbUrl);
 	}
@@ -59,10 +66,12 @@ public class DataBean {
 			String charset = req.getCharacterEncoding();
 			if (charset == null)
 				charset = "ISO-8859-1";
+			System.out.println("Charset is "+charset);
 			encode = Charset.forName(charset);
 		}
 
 		public String encode(String in) {
+			System.out.println("Encoding raw input "+in+" [or "+URLEncoder.encode(in)+"] using "+encode+" to "+utf8);
 			return utf8.decode(encode.encode(in)).toString();
 		}
 	}

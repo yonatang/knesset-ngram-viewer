@@ -18,7 +18,8 @@ public class UTF8Filter implements Filter {
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 			throws IOException, ServletException {
-		servletRequest.setCharacterEncoding("ISO-8859-1");
+		System.out.println("Original encoding "+servletRequest.getCharacterEncoding());
+		servletRequest.setCharacterEncoding(System.getProperty("ngrams.url.encode", "ISO-8859-1"));
 		servletResponse.setContentType("text/html; charset=UTF-8");
 		filterChain.doFilter(servletRequest, servletResponse);
 	}

@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,6 +35,20 @@ public abstract class AbsIndexer<CTX, O extends AbsQueryOptions, QR extends AbsQ
 	public AbsIndexer(String dbConnStr) {
 		this.dbConnectionString = dbConnStr;
 		System.out.println("Connection string is "+dbConnectionString);
+		try (Connection conn=getConnection()){
+			try (PreparedStatement stmt=conn.prepareStatement("SELECT COUNT(*) FROM "+tableName());
+					ResultSet rs=stmt.executeQuery();){
+				if (!rs.next()){
+					System.out.println("Empty table in "+tableName());
+				} else {
+					int tableSize=rs.getInt(1);
+					System.out.println("Table "+tableName()+" contains "+tableSize);
+				}
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	public String getConnStr() {
